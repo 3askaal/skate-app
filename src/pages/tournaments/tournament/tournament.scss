@@ -1,0 +1,45 @@
+.roster {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 2000px;
+}
+
+.roster__round {
+  display: flex;
+  flex: 0 0 8vw;
+  max-width: 250px;
+  font-size: 4px;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.roster__round__match {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $primary-border;
+  border-bottom: 1px solid $primary-border;
+  border-right: 1px solid $primary-border;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  justify-content: space-around;
+}
+
+.roster__round__match__player {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  &:first-child {
+    justify-content: flex-start;
+  }
+
+  &:last-child {
+    justify-content: flex-end;
+  }
+}
+
+.roster__winner {
+  border-bottom: 1px solid $primary-border;
+  padding: 20px;
+}

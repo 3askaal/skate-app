@@ -1,0 +1,152 @@
+// button {
+//   @extend .btn;
+// }
+
+// ionic button reset
+button {
+  padding: 0;
+  margin: 0 !important;
+  font-size: 1em;
+}
+
+.btn {
+  display: inline-flex;
+  padding: 15px 22px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  font-family: $button-fam;
+  font-weight: $button-weight;
+
+  cursor: pointer;
+  text-transform: uppercase;
+
+  color: $primary !important;
+  border: 1px solid $primary-border;
+  border-radius: $radius;
+  background-color: $primary-transparent;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  &.activated {
+    background-color: $primary-active !important;
+  }
+}
+
+.btn--wide {
+  padding: 15px 50px;
+}
+
+.btn--block {
+  display: block;
+  width: 100%;
+}
+
+.btn--foot {
+  border-top: 0;
+  border-radius: 0 0 $radius $radius;
+}
+
+.btn--clean {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent !important;
+  box-shadow: none;
+  padding: 0;
+}
+
+.btn--square {
+  width: 50px;
+  height: 50px;
+}
+
+.btn--list {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(-100%);
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: $radius $radius 0 0;
+}
+
+.btn--active {
+  background-color: $primary-transparent !important;
+}
+
+// SOCIAL
+// .btn--facebook {
+//   color: $facebook !important;
+//   border-color: $facebook !important;
+
+//   &:hover,
+//   &:active {
+//     background-color: $facebook !important;
+//   }
+// }
+
+// .btn--twitter {
+//   color: $twitter !important;
+//   border-color: $twitter !important;
+
+//   &:hover,
+//   &:active {
+//     background-color: $twitter !important;
+//   }
+// }
+
+// .btn--google {
+//   color: $google !important;
+//   border-color: $google !important;
+
+//   &:hover,
+//   &:active {
+//     background-color: $google !important;
+//   }
+// }
+
+.btn--confirm {
+  width: 100%;
+  padding: 20% 0;
+  font-size: 200%;
+  border-radius: $radius;
+}
+
+.btn--positive {
+  color: $positive !important;
+  border: 0 !important;
+  box-shadow: inset 0 0 0 2px $positive;
+  background-color: transparent !important;
+
+  svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  &.active {
+    color: $grey-darker !important;
+    box-shadow: inset 0 0 0 2px darken($positive, 20%);
+    // background-color: rgba($positive, .6) !important;
+    background-color: $positive !important;
+  }
+}
+
+.btn--negative {
+  color: $negative !important;
+  border: 0 !important;
+  box-shadow: inset 0 0 0 2px $negative;
+  background-color: transparent !important;
+
+  svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  &.active {
+    color: $grey-darker !important;
+    box-shadow: inset 0 0 0 2px darken($negative, 20%);
+    // background-color: rgba($negative, .6) !important;
+    background-color: $negative !important;
+  }
+}

@@ -1,0 +1,14 @@
+@import '../../theme/all';
+
+row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+column {
+  display: inline-flex;
+  flex-direction: column;
+  flex-grow: 0;
+}

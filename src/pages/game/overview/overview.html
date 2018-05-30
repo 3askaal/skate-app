@@ -1,0 +1,58 @@
+<header [title]="'Game'"></header>
+
+
+
+<content>
+
+  <div class="align-center space--xl">
+    <ng-template [ngIf]="GAME_STORAGE.me">
+      <p class="space--s">
+        <strong>{{ GAME_STORAGE.me?.player.username }}</strong>
+      </p>
+      <board [word]="GAME_STORAGE.data?.word" [letters]=GAME_STORAGE.me?.letters></board>
+    </ng-template>
+  </div>
+
+  <tabs>
+
+    <tab [title]="'Score'" [active]="true">
+      <ng-template ngFor let-player [ngForOf]="GAME_STORAGE.data?.players">
+        <row *ngIf="!player.me" class="score">
+          <column [width]="45" class="score__player">
+            <strong [class.strike]=player.report.l>{{ player.player.username }}</strong>
+          </column>
+          <column [width]="55" class="score__letters">
+            <letters [word]="GAME_STORAGE.data?.word" [letters]=player.letters></letters>
+          </column>
+        </row>
+      </ng-template>
+    </tab>
+
+    <tab [title]="'Turns'">
+      <list>
+        <ng-template ngFor let-turn [ngForOf]="GAME_STORAGE.data?.turns" let-index="index + 1">
+          <list-item>
+            <span>{{ index }}.</span>
+            <span>
+              <trick [trick]=turn.trick [full]=false></trick>
+            </span>
+            <span class='right'>
+              <strong>{{ turn.player.username }}</strong>
+            </span>
+          </list-item>
+        </ng-template>
+      </list>
+    </tab>
+
+  </tabs>
+
+</content>
+
+<footer *ngIf="GAME_STORAGE.isRef || GAME_STORAGE.isCurrent">
+  <row class="gutters">
+    <a class="btn" (click)="GAME_ROUTES.route('switch:trick')">
+      <i-chevron-left></i-chevron-left>
+      TRICK
+    </a>
+  </row>
+</footer>

@@ -1,0 +1,36 @@
+<content [center]="true">
+
+  <form (ngSubmit)="AUTH.login(credentials)" class="space--m">
+
+    <label class="input input--field space--m">
+      <input
+        type="text"
+        placeholder="Username or Email"
+        name="identifier"
+        [(ngModel)]="credentials.identifier">
+    </label>
+
+    <label class="input input--field space--m">
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        [(ngModel)]="credentials.password">
+    </label>
+
+    <button class="btn btn--block" type="submit">LOG IN</button>
+
+  </form>
+
+  <!-- FOR DEMO -->
+  <!-- <row class="gutters">
+    <column [width]="50">
+      <a class="btn">REGISTER</a>
+    </column>
+    <column [width]="50">
+      <a class="btn">FORGOT PASSWORD</a>
+    </column>
+  </row> -->
+  <!-- /FOR DEMO -->
+
+</content>

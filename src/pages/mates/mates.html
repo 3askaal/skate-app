@@ -1,0 +1,89 @@
+<header [title]="'Mates'"></header>
+
+<div class="wrapper">
+  <div class="toolbar">
+    <search (searchInput)="onInput($event)" (searchClear)="results = null" (searchFocus)="focussed = true" (searchBlur)="focussed = false"></search>
+  </div>
+</div>
+
+
+<content>
+
+  <ng-template [ngIf]="results?.length">
+    <list>
+      <list-item *ngFor="let item of results">
+        <span>
+          <i-user></i-user>
+        </span>
+        {{ item.username }}
+        <div class="buttons">
+          <a class='btn' (click)="request(item)">
+            <i-user-plus></i-user-plus>
+          </a>
+        </div>
+      </list-item>
+    </list>
+  </ng-template>
+
+
+  <ng-template [ngIf]="!focussed">
+
+    <ng-template [ngIf]="requests?.length">
+      <h2 class="space--s">Requests</h2>
+      <list>
+        <list-item *ngFor="let item of requests">
+          <span>
+            <i-user></i-user>
+          </span>
+          {{ item.username }}
+          <div class="buttons">
+            <a class='btn' (click)="accept(item)">
+              <i-user-check></i-user-check>
+            </a>
+            <a class='btn' (click)="remove(item)">
+              <i-user-x></i-user-x>
+            </a>
+          </div>
+        </list-item>
+      </list>
+    </ng-template>
+
+    <ng-template [ngIf]="mates?.length">
+      <h2 class="space--s">Mates</h2>
+      <list>
+        <list-item *ngFor="let item of mates">
+          <span>
+            <i-user></i-user>
+          </span>
+          {{ item.username }}
+          <div class="buttons">
+            <a class='btn' (click)="challenge(item)">
+              <i-flag></i-flag>
+            </a>
+            <a class='btn' (click)="remove(item)">
+              <i-user-x></i-user-x>
+            </a>
+          </div>
+        </list-item>
+      </list>
+    </ng-template>
+
+    <ng-template [ngIf]="requested?.length">
+      <h2 class="space--s">Requested</h2>
+      <list>
+        <list-item *ngFor="let item of requested">
+          <span>
+            <i-clock></i-clock>
+          </span>
+          {{ item.username }}
+          <div class="buttons">
+            <a class='btn' (click)="remove(item)">
+              <i-user-x></i-user-x>
+            </a>
+          </div>
+        </list-item>
+      </list>
+    </ng-template>
+  </ng-template>
+
+</content>

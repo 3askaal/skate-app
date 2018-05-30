@@ -1,0 +1,31 @@
+<ng-template [ngIf]="this?.mates?.length">
+
+  <div class="wrapper">
+    <div class="toolbar toolbar--small">
+      <table class="table--head">
+        <tr>
+          <th>
+            <i-hash></i-hash>
+          </th>
+          <th>USERNAME</th>
+          <th (click)="sort = '-stats.xp'" [ngClass]="{ 'active': sort === '-stats.xp' }">XP</th>
+          <th (click)="sort = '-stats.w'" [ngClass]="{ 'active': sort === '-stats.w' }">W</th>
+          <th (click)="sort = '-stats.l'" [ngClass]="{ 'active': sort === '-stats.l' }">L</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <content [noPaddingTop]="true">
+    <table class="table--body">
+      <tr *ngFor="let mate of mates | order:[sort]; let i = index;">
+        <td>{{ i + 1 }}</td>
+        <td>{{ mate.username }}</td>
+        <td>{{ mate.stats.xp }}</td>
+        <td>{{ mate.stats.w }}</td>
+        <td>{{ mate.stats.l }}</td>
+      </tr>
+    </table>
+  </content>
+
+</ng-template>

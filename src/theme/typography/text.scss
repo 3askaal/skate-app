@@ -1,0 +1,42 @@
+%text-styling {
+  font-family: $base-fam;
+  line-height: $base-line-height;
+}
+
+@mixin text-l {
+  font-size: 1.3em;
+  @extend %text-styling;
+}
+
+.text-l {
+  @include text-l;
+}
+
+@mixin text-m {
+  font-size: 1em;
+  @extend %text-styling;
+}
+
+p,
+.text-m {
+  @include text-m;
+}
+
+@mixin text-s {
+  font-size: 0.9em;
+  @extend %text-styling;
+}
+
+.text-s {
+  @include text-s;
+}
+
+strong {
+  font-weight: $bold-weight;
+}
+
+@mixin label {
+  font-weight: $bold-weight;
+  text-transform: uppercase;
+  color: $primary-dark;
+}

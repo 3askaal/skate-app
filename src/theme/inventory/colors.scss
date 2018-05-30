@@ -1,0 +1,47 @@
+$grey-dark: darken(white, 90%);
+$grey-darker: darken(white, 92%);
+$grey-sidebar: darken(white, 94%);
+
+$white: darken(white, 2%);
+
+$background: linear-gradient(to bottom, darken(white, 88%), darken(white, 94%));
+$background-sidebar: linear-gradient(to bottom, darken(white, 90%), darken(white, 96%));
+
+$primary: #04f2d5;
+$primary-dark: darken($primary, 10%);
+$primary-darker: darken($primary, 20%);
+$primary-light: lighten($primary, 10%);
+$primary-lighter: lighten($primary, 20%);
+$primary-border: darken($primary, 35%);
+$primary-active: rgba($primary, 0.1);
+$primary-transparent: rgba($primary, 0.05);
+$primary-hover: rgba($primary, 0.2);
+$primary-placeholder: rgba($primary, 0.3);
+$primary-text: rgba($primary, 0.8);
+$primary-disabled: rgba($primary, 0.1);
+
+$secondary: #7459dc;
+$secondary-light: lighten($secondary, 10%);
+$secondary-dark: darken($secondary, 10%);
+$secondary-border: rgba($secondary, 0.4);
+$secondary-placeholder: rgba($secondary, 0.3);
+$secondary-active: rgba($secondary, 0.1);
+$secondary-transparent: rgba($secondary, 0.5);
+
+$tertiary: #dc3255;
+$quaternary: #3a6a8c;
+
+$base-color: $primary;
+
+$shadow: 0 5px 10px 0px rgba($grey-darker, 0.8);
+$shadow-invert: -8px -8px 5px 0 rgba($grey-darker, 0.8);
+
+$facebook: #3b5998;
+$twitter: #55acee;
+$google: #dc4e41;
+
+$positive: mix(green, $primary, 60%);
+$negative: mix(red, $secondary, 60%);
+
+$positive-subtle: rgba($positive, 0.05);
+$negative-subtle: rgba($negative, 0.05);

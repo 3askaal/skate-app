@@ -1,0 +1,22 @@
+<header [title]="'Games'"></header>
+
+
+<content>
+
+  <list *ngIf="games">
+
+    <list-item *ngFor="let game of games" [routerLink]="['/games/report', game._id]">
+
+      <span>VS.</span>
+
+      <ng-template ngFor let-player [ngForOf]="game.players">
+        <span *ngIf="player.player._id !== SHARED.user._id">{{ player.player.username }}</span>
+      </ng-template>
+
+      <letters class="right" [word]=game.word [isStatic]=true></letters>
+
+    </list-item>
+
+  </list>
+
+</content>

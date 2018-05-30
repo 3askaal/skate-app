@@ -1,0 +1,7 @@
+<div #wrapper>
+  <router-outlet></router-outlet>
+</div>
+
+<overlay [@overlay]="sidebarState" (click)="toggleSidebar()"></overlay>
+
+<sidebar [@sidebar]="sidebarState" (click)="toggleSidebar()"></sidebar>

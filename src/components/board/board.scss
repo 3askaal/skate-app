@@ -1,0 +1,51 @@
+@import '../../theme/all';
+
+board {
+  position: relative;
+  display: flex;
+  width: 90%;
+  max-width: 300px;
+  margin: 0 auto;
+  min-height: 80px;
+
+  border: solid rgba($secondary, 0.5);
+  border-width: 1px 2px;
+  border-radius: 40px;
+
+  background-color: darken(white, 90%);
+  background-image: url('../assets/images/griptape.png');
+  background-clip: padding-box;
+  background-size: 50px 50px;
+
+  box-shadow: 0 5px 20px 10px rgba(black, 0.2);
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.board__letters {
+  text-shadow: 0 2px 6px black;
+  margin-top: -6px;
+  width: 100%;
+  text-align: center;
+}
+
+.board__nose,
+.board__tail {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background-color: rgba(black, 0.3);
+  box-shadow: 0 0 20px 10px rgba(black, 0.3);
+}
+
+.board__nose {
+  left: 0;
+}
+
+.board__tail {
+  right: 0;
+}

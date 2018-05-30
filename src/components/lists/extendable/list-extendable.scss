@@ -1,0 +1,16 @@
+.extendable {
+  text-transform: uppercase;
+  background-color: darken(white, 95%);
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 12px;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: $size-xs;
+
+  &.extend {
+    border: 1px solid $primary-border;
+    border-top: 0;
+    visibility: visible;
+    padding: 20px 12px;
+  }
+}

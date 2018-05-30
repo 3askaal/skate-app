@@ -1,0 +1,35 @@
+<header [title]="'Choose trick'"></header>
+
+
+<div class="wrapper">
+  <div class="toolbar">
+    <p class="align-center space--s">{{ GAME_STORAGE.getCurrentPlayerUsername() }} should pick a trick:</p>
+    <search (searchInput)="onInput($event)" (searchClear)="onClear()"></search>
+  </div>
+</div>
+
+<content>
+  <list *ngIf="TRICK.tricks">
+    <list-item *ngFor="let trick of TRICK.tricks | trickFilter:keywords | order:['difficulty', '-rotation']" [class.disabled]="trick.chosen"
+      [class.active]="trick.selected" (click)="select(trick)">
+      <trick [trick]="trick"></trick>
+    </list-item>
+  </list>
+</content>
+
+<footer>
+  <row class="gutters">
+    <column *ngIf="GAME_STORAGE.isRef || GAME_STORAGE.isCurrent">
+      <a class="btn" (click)="GAME_ROUTES.route('switch:overview')">
+        <i-chevron-left></i-chevron-left>
+        OVERVIEW
+      </a>
+    </column>
+    <column>
+      <a class="btn" (click)="GAME_ACTIONS.pass()">NEXT</a>
+    </column>
+    <column>
+      <a class="btn" [class.disabled]="!trick" (click)="GAME_ACTIONS.pickTrick(this.trick)">PICK</a>
+    </column>
+  </row>
+</footer>

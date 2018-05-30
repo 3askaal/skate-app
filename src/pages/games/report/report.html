@@ -1,0 +1,144 @@
+<header [title]="'Report'"></header>
+
+<tabs>
+  <tab [title]="'Players'" [active]="true">
+
+    <content>
+
+      <div class="align-center space--xl">
+        <board *ngIf="word" [word]="word" [isStatic]="true"></board>
+      </div>
+
+      <list>
+
+        <ng-template ngFor let-player [ngForOf]="players">
+
+          <list-item (click)="player.extend = !player.extend">
+            <span class="lst__item__indicator" [style.background-color]='player.backgroundColor'></span>
+            <span>{{ player.report.position }}.</span>
+            <span>{{ player.username }}</span>
+            <div class="lst__item__icons">
+              <i class="ss-navigatedown" *ngIf="!player.extend"></i>
+              <i class="ss-navigateup" *ngIf="player.extend"></i>
+            </div>
+          </list-item>
+
+          <list-extendable [extend]="player?.extend">
+            <div *ngIf="player?.report.lostAtTurn">
+              <span>Lost at trick:</span>
+              <span>{{ player.report.lostAtTurn }}.</span>
+              <trick [trick]="turns[(player.report.lostAtTurn - 1)].trick" [full]=false></trick>
+            </div>
+            <div *ngIf="player?.report.lettersGiven">
+              <span>Letters given:</span>
+              <span>{{ player.report.lettersGiven }}</span>
+            </div>
+            <div *ngIf="player?.report.xp">
+              <span>XP Earned:</span>
+              <span>{{ player.report.xp }}</span>
+            </div>
+          </list-extendable>
+
+        </ng-template>
+
+      </list>
+
+      <row [gutters]="true" [bigGutters]="true">
+        <column [width]="50">
+          <p class="space--s align-center">LETTERS GIVEN</p>
+          <canvas baseChart *ngIf="letterChartData" width="100" height="100" class="space--m"
+          [data]="letterChartData"
+          [labels]="chartLabels"
+          [colors]="chartColors"
+          [options]="chartOptions"
+          [chartType]="'doughnut'"
+          [legend]="false"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+          </canvas>
+        </column>
+        <column [width]="50">
+          <p class="space--s align-center">XP EARNED</p>
+          <canvas baseChart *ngIf="xpChartData" width="100" height="100" class="space--m"
+          [data]="xpChartData"
+          [labels]="chartLabels"
+          [colors]="chartColors"
+          [options]="chartOptions"
+          [chartType]="'doughnut'"
+          [legend]="false"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </column>
+    </row>
+
+</content>
+
+</tab>
+
+<tab [title]="'Turns'">
+
+  <content>
+
+    <div class="align-center space--xl">
+      <board *ngIf="word" [word]="word" [isStatic]="true"></board>
+    </div>
+
+    <list>
+
+      <ng-template ngFor let-turn [ngForOf]="turns" let-index="index + 1">
+
+        <list-item (click)="turn.extend = !turn.extend">
+          <span>{{ index }}.</span>
+          <span><trick [trick]=turn.trick [full]=false></trick></span>
+          <span class="right"><strong>{{ turn.player.username }}</strong></span>
+        </list-item>
+
+        <list-extendable [extend]="turn?.extend">
+          <div *ngIf="turn.good.length">
+            <span><strong>Good:</strong></span>
+            <span *ngFor="let good of turn.good">{{ good.username }} </span>
+          </div>
+          <div *ngIf="turn.fail.length">
+            <span><strong>Failed:</strong></span>
+            <span *ngFor="let failed of turn.fail">{{ failed.username }} </span>
+          </div>
+        </list-extendable>
+
+      </ng-template>
+
+    </list>
+
+    <row [gutters]="true" [bigGutters]="true">
+      <column [width]="50">
+        <p class="space--s align-center">TRICK STANCES</p>
+        <canvas baseChart *ngIf="trickStanceChartData" width="100" height="100" class="space--m"
+        [data]="trickStanceChartData.values"
+        [labels]="trickStanceChartData.labels"
+        [colors]="trickStanceChartData.colors"
+        [options]="chartOptions"
+        [chartType]="'doughnut'"
+        [legend]="false"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+      </canvas>
+    </column>
+    <column [width]="50">
+      <p class="space--s align-center">TRICK TYPES</p>
+      <canvas baseChart *ngIf="trickTypeChartData" width="100" height="100" class="space--m"
+      [data]="trickTypeChartData.values"
+      [labels]="trickTypeChartData.labels"
+      [colors]="trickTypeChartData.colors"
+      [options]="chartOptions"
+      [chartType]="'doughnut'"
+      [legend]="false"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+    </canvas>
+  </column>
+</row>
+
+</content>
+</tab>
+
+</tabs>

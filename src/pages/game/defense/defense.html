@@ -1,0 +1,72 @@
+<header [title]="'Apply'"></header>
+
+
+<content>
+
+  <ng-template [ngIf]="GAME_STORAGE.isCurrent || GAME_STORAGE.isRef">
+
+    <div class="align-center space--xl">
+      <p class="space--s">
+        <strong>U</strong> have chosen:</p>
+      <div class="card">
+        <trick [trick]="GAME_STORAGE.current?.trick" [full]=false></trick>
+      </div>
+    </div>
+
+    <list>
+      <list-item *ngFor="let player of opponents()" [class.positive]="player.defense === true" [class.negative]="player.defense === false"
+        (click)="player.defense = !player.defense; GAME_ACTIONS.updateDefense(player)">
+        {{ player.player.username }}
+        <span class="right" *ngIf="player.defense === true">
+          <i-thumbs-up></i-thumbs-up>
+        </span>
+        <span class="right" *ngIf="player.defense === false">
+          <i-thumbs-down></i-thumbs-down>
+        </span>
+      </list-item>
+    </list>
+
+    <div class="align-center">
+      <a class="btn" (click)="GAME_ACTIONS.apply()">Apply</a>
+    </div>
+
+  </ng-template>
+
+
+
+  <ng-template [ngIf]="!GAME_STORAGE.isCurrent && !GAME_STORAGE.isRef">
+
+    <div class="align-center space--xl">
+      <p class="space--s">
+        <strong>{{ GAME_STORAGE.current.player.player.username }}</strong> has chosen:</p>
+      <div class="card">
+        <trick [trick]="GAME_STORAGE.current.trick" [full]=false></trick>
+      </div>
+    </div>
+
+    <row class="gutters space--l">
+      <column [width]="50">
+        <a class="btn btn--confirm btn--negative" [class.active]="GAME_STORAGE.me.defense === false" [class.disabled]="GAME_STORAGE.me.defense === true || GAME_STORAGE.me.defense === false"
+          (click)="GAME_STORAGE.me.defense = false;
+            GAME_ACTIONS.updateDefense(GAME_STORAGE.me)">
+          <i-thumbs-down></i-thumbs-down>
+        </a>
+      </column>
+      <column [width]="50">
+        <a class="btn btn--confirm btn--positive" [class.active]="GAME_STORAGE.me.defense === true" [class.disabled]="GAME_STORAGE.me.defense === true || GAME_STORAGE.me.defense === false"
+          (click)="GAME_STORAGE.me.defense = true;
+            GAME_ACTIONS.updateDefense(GAME_STORAGE.me)">
+          <i-thumbs-up></i-thumbs-up>
+        </a>
+      </column>
+    </row>
+
+    <list>
+      <list-item *ngFor="let player of opponents()" [class.positive]="player.defense === true" [class.negative]="player.defense === false">
+        {{ player.player.username }}
+      </list-item>
+    </list>
+
+  </ng-template>
+
+</content>

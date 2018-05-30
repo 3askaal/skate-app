@@ -1,0 +1,12 @@
+<div #container>
+  <ng-content></ng-content>
+</div>
+
+<footer>
+  <div class="tabs">
+    <a class="tabs__tab"
+      *ngFor="let tab of tabs"
+      [class.active]="tab.active"
+      (click)="select(tab)">{{ tab.title }}</a>
+  </div>
+</footer>

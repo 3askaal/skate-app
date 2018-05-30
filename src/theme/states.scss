@@ -1,0 +1,25 @@
+.active {
+  background-color: $primary-active !important;
+}
+
+.positive {
+  background-color: $positive;
+}
+
+.negative {
+  background-color: $negative;
+}
+
+.disabled {
+  pointer-events: none !important;
+  opacity: 0.4 !important;
+  color: $primary-disabled !important;
+}
+
+.positive-subtle {
+  background-color: $positive-subtle;
+}
+
+.negative-subtle {
+  background-color: $negative-subtle;
+}

@@ -1,0 +1,60 @@
+@import '../../theme/all';
+
+table {
+  width: 100%;
+  font-size: $size-s !important;
+  color: $primary-text;
+}
+
+.table--head {
+  font-family: $heading-fam;
+  height: 40px;
+  box-shadow: $shadow;
+}
+
+th {
+  vertical-align: middle;
+  text-align: left;
+  padding: 0 10px;
+  text-transform: uppercase;
+  border: 1px solid $primary-border;
+  background-color: $primary-transparent;
+  cursor: pointer;
+  font-weight: 700 !important;
+
+  &.active {
+    background-color: $primary-active;
+  }
+}
+
+.table__head__icon {
+  position: relative;
+  padding-left: 5px;
+  color: $primary;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+td {
+  position: relative;
+  padding: 10px 0 10px 10px !important;
+  border: 1px solid $primary-border;
+}
+
+td,
+th {
+  width: 15%;
+
+  &:nth-child(2) {
+    width: 40%;
+  }
+}
+
+tr {
+  border: 1px solid $primary-border;
+}
+
+tr.me {
+  color: $primary;
+  background-color: $primary-active;
+}

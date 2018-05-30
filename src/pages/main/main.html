@@ -1,0 +1,50 @@
+<header></header>
+
+<content [center]="true">
+
+  <div class="space--m align-center" *ngIf="SHARED.user">
+    <p>Welcome,
+      <strong>{{ SHARED.user.username }}</strong>
+    </p>
+  </div>
+
+  <div class="space--l">
+    <board [word]=word [isStatic]=true [isInput]=true (boardInput)="wordIsBorn($event)"></board>
+  </div>
+
+  <!-- <a class="btn" *ngIf="!ENV.production" [routerLink]="['lobby', 'SkMqQZXCG']">Active lobby</a> -->
+
+  <div class="main__buttons">
+    <a class="btn" routerLink="invite">
+      <div class="btn__icon">
+        <i-flag class="icon--big"></i-flag>
+      </div>
+    </a>
+    <a class="btn" routerLink="mates">
+      <div class="btn__icon">
+        <i-users class="icon--big"></i-users>
+      </div>
+    </a>
+    <a class="btn" routerLink="games">
+      <div class="btn__icon">
+        <i-pie-chart class="icon--big"></i-pie-chart>
+      </div>
+    </a>
+    <a class="btn" routerLink="tournaments">
+      <div class="btn__icon">
+        <i-award class="icon--big"></i-award>
+      </div>
+    </a>
+    <a class="btn" routerLink="stats">
+      <div class="btn__icon">
+        <i-bar-chart class="icon--big"></i-bar-chart>
+      </div>
+    </a>
+    <a class="btn" routerLink="settings">
+      <div class="btn__icon">
+        <i-sliders class="icon--big"></i-sliders>
+      </div>
+    </a>
+  </div>
+
+</content>

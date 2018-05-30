@@ -1,0 +1,24 @@
+.right {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+.align-left { text-align: left; }
+.align-right { text-align: right; }
+.align-center { text-align: center; }
+
+.transparent {
+  background-color: transparent !important;
+}
+
+.space--xxs { margin-bottom: $space-xxs !important; }
+.space--xs { margin-bottom: $space-xs !important; }
+.space--s { margin-bottom: $space-s !important; }
+.space--m { margin-bottom: $space-m !important; }
+.space--l { margin-bottom: $space-l !important; }
+.space--xl { margin-bottom: $space-xl !important; }
+.space--xxl { margin-bottom: $space-xxl !important; }

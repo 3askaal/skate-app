@@ -1,0 +1,34 @@
+<ng-template [ngIf]="this?.users?.length">
+
+  <div class="wrapper">
+    <div class="toolbar toolbar--small">
+      <table class="table--head">
+        <tr>
+          <th>
+            <i-hash></i-hash>
+          </th>
+          <th>USERNAME</th>
+          <th (click)="sort = '-stats.xp'; getUsers(false)" [ngClass]="{ 'active': sort === '-stats.xp' }">XP</th>
+          <th (click)="sort = '-stats.w'; getUsers(false)" [ngClass]="{ 'active': sort === '-stats.w' }">W</th>
+          <th (click)="sort = '-stats.l'; getUsers(false)" [ngClass]="{ 'active': sort === '-stats.l' }">L</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <content [noPaddingTop]="true">
+    <table class="table--body">
+      <ng-template ngFor let-user [ngForOf]="users" let-i="index">
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.stats.xp }}</td>
+          <td>{{ user.stats.w }}</td>
+          <td>{{ user.stats.l }}</td>
+        </tr>
+      </ng-template>
+    </table>
+    <a class="btn btn--block btn--foot" (click)="getUsers()" *ngIf="!limitReached">LOAD MORE</a>
+  </content>
+
+</ng-template>

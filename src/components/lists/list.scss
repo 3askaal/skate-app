@@ -1,0 +1,158 @@
+@import '../../theme/all';
+
+@mixin item-positive {
+  background-color: rgba($positive, 0.1);
+  .lst__item__icons {
+    color: $positive;
+  }
+}
+
+@mixin item-negative {
+  background-color: rgba($negative, 0.1);
+  .lst__item__icons {
+    color: $negative;
+  }
+}
+
+list {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  font-size: 0.9em;
+
+  i {
+    font-size: 16px;
+  }
+}
+
+list-item {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 10px;
+  list-style: none;
+  text-transform: uppercase;
+  color: $primary;
+  border-bottom: 1px solid $primary-border;
+  border-top: 1px solid $primary-border;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  height: 42px;
+
+  &.positive {
+    @include item-positive;
+  }
+  &.negative {
+    @include item-negative;
+  }
+
+  > span {
+    margin-right: 10px;
+  }
+
+  .buttons {
+    @extend .lst__item__options;
+  }
+
+  .right {
+    text-align: right;
+
+    > * {
+      float: right;
+    }
+  }
+}
+
+list-item + list-item,
+list-item + list-extendable + list-item {
+  margin-top: -1px;
+}
+
+.lst__item__icon {
+  margin-right: 10px;
+}
+
+.lst__item__status {
+  margin-right: 10px;
+}
+
+.lst__item__icons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  transition: color $timing;
+}
+
+.lst__item__options {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  transition: transform 0.3s ease;
+  transform: translateX(0%);
+
+  border-right: 1px solid $primary-border;
+
+  &.hide--1 {
+    transform: translateX(50px);
+  }
+  &.hide--2 {
+    transform: translateX(100px);
+  }
+  &.hide--3 {
+    transform: translateX(150px);
+  }
+  &.hide--4 {
+    transform: translateX(200px);
+  }
+
+  .btn {
+    display: inline-flex !important;
+    float: left;
+    height: 100%;
+    padding: 0;
+    width: 50px;
+
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-radius: 0;
+
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.lst__item__options__btn {
+  width: 50px;
+  height: 100%;
+  margin-right: -1px;
+
+  border-top: 0;
+  border-bottom: 0;
+  border-radius: 0;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.lst__item__indicator {
+  position: absolute;
+  display: inline-block;
+  width: 25px;
+  border-right: 1px solid $primary-border;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  margin: auto;
+
+  + span {
+    margin-left: 30px;
+  }
+}

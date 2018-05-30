@@ -1,0 +1,17 @@
+<div class="dialog">
+
+  <div class="dialog__header">{{ title }}</div>
+
+  <div class="dialog__content">
+    <ng-content></ng-content>
+  </div>
+
+  <div class="dialog__footer" *ngIf="buttons">
+    <row [gutters]="true">
+      <column *ngFor="let button of buttons">
+        <a class="btn btn--block" (click)="buttonClick.emit(button.event)">{{ button.label }}</a>
+      </column>
+    </row>
+  </div>
+
+</div>

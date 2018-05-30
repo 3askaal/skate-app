@@ -1,0 +1,34 @@
+%heading-styling {
+  font-family: $heading-fam !important;
+  font-weight: $heading-weight !important;
+  line-height: $heading-line-height;
+  text-transform: uppercase;
+  color: $secondary;
+}
+
+@mixin heading-xl {
+  font-size: 1.9rem;
+  @extend %heading-styling;
+}
+
+h1 {
+  @include heading-xl;
+}
+
+@mixin heading-l {
+  font-size: 1.6rem;
+  @extend %heading-styling;
+}
+
+h2 {
+  @include heading-l;
+}
+
+@mixin heading-m {
+  font-size: 1.3em;
+  @extend %heading-styling;
+}
+
+h3 {
+  @include heading-m;
+}

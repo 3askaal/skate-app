@@ -1,0 +1,19 @@
+<header [title]="'Select players'"></header>
+
+
+<content>
+
+  <list>
+    <list-item class="draggable-source"
+        *ngFor="let mate of mates | order:['-selected']"
+        (click)="mate.selected = !mate.selected"
+        [class.active]="mate.selected">
+      {{ mate.username }}
+    </list-item>
+  </list>
+
+  <div class="align-center">
+    <a class="btn" (click)="invite()">Challenge</a>
+  </div>
+
+</content>

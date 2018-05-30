@@ -1,0 +1,35 @@
+@import '../../theme/all';
+
+header {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  justify-content: center;
+  background-color: darken(white, 90%);
+}
+
+header .btn {
+  align-items: center;
+  display: inline-flex;
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.header__buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+header .pagetitle {
+  @include text-l;
+  @include label;
+}

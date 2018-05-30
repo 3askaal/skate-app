@@ -1,0 +1,17 @@
+@import '../../theme/all';
+
+$footer-color: rgba(darken(white, 95%), 0.85);
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $footer-color;
+  box-shadow: 0 0 10px 10px $footer-color;
+  z-index: 100;
+}

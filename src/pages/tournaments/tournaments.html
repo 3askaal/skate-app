@@ -1,0 +1,24 @@
+<header [title]="'Tournaments'"></header>
+
+
+<content>
+
+  <list *ngIf="tournaments">
+
+    <list-item *ngFor="let tournament of tournaments" [routerLink]="['/tournaments/tournament', tournament._id]">
+
+      {{ tournament._id }}
+
+      <!-- <span>VS.</span> -->
+
+      <!-- <ng-template ngFor let-player [ngForOf]="game.players">
+        <span *ngIf="player.player._id !== SHARED.user._id">{{ player.player.username }}</span>
+      </ng-template> -->
+
+      <!-- <letters class="right" [word]=game.word [isStatic]=true></letters> -->
+
+    </list-item>
+
+  </list>
+
+</content>

@@ -1,0 +1,19 @@
+<div class="letters" [style.font-size]=fontSize>
+
+  <div class="letter__wrapper">
+
+    <ng-template ngFor let-letter [ngForOf]="word.split('')" let-last="last" let-index="index + 1">
+
+      <span class="letters__letter show" [class.show]="letters >= index || isStatic">{{ letter }}</span>
+
+      <ng-template [ngIf]="!last">
+        <span class="letters__dot show" [class.show]="letters > index || isStatic">.</span>
+      </ng-template>
+
+    </ng-template>
+
+  </div>
+
+  <input *ngIf="isInput" class="letters__input" [(ngModel)]="word" (input)="onInput()" (blur)="onBlur()" maxlength=length type="text" />
+
+</div>

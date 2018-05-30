@@ -1,0 +1,32 @@
+.chosen-trick {
+  text-transform: uppercase;
+  border-bottom: 1px solid $primary-border;
+  padding-bottom: 5px;
+  display: inline-block;
+  font-size: 1.2em;
+}
+
+.chosen-trick__position,
+.chosen-trick__direction,
+.chosen-trick__rotation,
+.chosen-trick__essential,
+.chosen-trick__tags,
+.chosen-trick__difficulty {
+  margin-right: 5px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.chosen-trick__position {
+  color: $primary-darker;
+}
+
+.chosen-trick__direction {
+  color: $primary-dark;
+}
+
+.chosen-trick__difficulty {
+  float: right;
+}

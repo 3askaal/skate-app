@@ -1,0 +1,30 @@
+.score {
+  border-bottom: 1px solid $primary-border;
+  height: 50px;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.score__player {
+  border-right: 1px solid $primary-border;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: right;
+}
+
+.score__letters {
+  line-height: 0;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.score--losers {
+  .letters__dot,
+  .letters__letter {
+    opacity: 0.3;
+  }
+}

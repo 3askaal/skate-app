@@ -1,0 +1,41 @@
+<header [title]="'Tournament'"></header>
+
+
+<content>
+
+  <div class="roster">
+
+    <div #roundEl *ngFor="let round of bracketRounds; let roundIndex = index;" class="roster__round">
+
+      <div #matchEl *ngFor="let match of round" class="roster__round__match" (click)="matchEl.scrollIntoView({ behavior: 'smooth' })">
+        <div *ngFor="let player of match.players" class="roster__round__match__player" [style.height]="getHeight(roundIndex)">
+          {{ player.username }}
+        </div>
+      </div>
+
+    </div>
+
+    <div #roundEl class="roster__round">
+      <div #winnerEl class="roster__winner" (click)="winnerEl.scrollIntoView({ behavior: 'smooth' })">
+        {{ winner?.username }}
+      </div>
+    </div>
+
+  </div>
+
+</content>
+
+<footer>
+  <row class="gutters">
+    <column [width]="50" [class.disabled]="roundIndex === 0">
+      <a class="btn btn--block" (click)="previous()">
+        <i class="icon-directleft"></i>
+      </a>
+    </column>
+    <column [width]="50" [class.disabled]="roundIndex === tournament?.bracket?.length">
+      <a class="btn btn--block" (click)="next()">
+        <i class="icon-directright"></i>
+      </a>
+    </column>
+  </row>
+</footer>

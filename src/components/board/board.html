@@ -1,0 +1,6 @@
+<div class="board__nose"></div>
+<div class="board__tail"></div>
+
+<div class="board__letters">
+  <letters [word]=word [letters]=letters [isInput]=isInput [isStatic]=isStatic (wordInput)="boardInput.emit($event)"></letters>
+</div>

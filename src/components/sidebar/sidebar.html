@@ -1,0 +1,5 @@
+<list>
+  <list-item [routerLink]="['']">Main menu</list-item>
+  <list-item (click)="AUTH.logout()">Logout</list-item>
+  <list-item *ngIf="GAME_STORAGE.data" (click)="GAME_ACTIONS.pass()">Pass</list-item>
+</list>

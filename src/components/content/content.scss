@@ -1,0 +1,41 @@
+@import '../../theme/all';
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  padding: 20px;
+  overflow-y: auto;
+
+  > * {
+    flex-shrink: 0;
+  }
+}
+
+.content--center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content--padding {
+  padding-top: 40px;
+}
+
+.content--no-padding-top {
+  margin-top: -1px;
+  padding-top: 0;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 520px;
+  padding: 0 20px;
+}
+
+.wrapper--small {
+  max-width: 320px;
+}

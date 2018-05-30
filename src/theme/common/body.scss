@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: $base-fam;
+  font-weight: $base-weight;
+  color: $base-color !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  user-select: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: $background !important;
+  min-height: 100vh;
+}
+
+p {
+  color: $base-color;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

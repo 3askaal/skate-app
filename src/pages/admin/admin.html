@@ -1,0 +1,161 @@
+<header [title]="'Admin'"></header>
+
+
+<content>
+
+  <dialog *ngIf="selectedItem">
+    <row *ngFor="let key of selectedItem | keys" class="gutters space--xs">
+      <column [width]="20">
+        <label for="{{ key }}">{{ key }}</label>
+      </column>
+      <column [width]="80">
+        <input id="{{ key }}" type="text" [(ngModel)]="selectedItem[key]">
+      </column>
+    </row>
+    <row class="gutters">
+      <column [width]="50">
+        <a class="btn btn--block" (click)="selectedItem = null">Cancel</a>
+      </column>
+      <column [width]="50">
+        <a class="btn btn--block" (click)="DATA.update(item)">Update</a>
+      </column>
+    </row>
+  </dialog>
+
+  <tabs>
+
+    <tab [title]="'Users'" (onActivate)="getData('user')">
+      <list>
+        <ng-template ngFor let-item [ngForOf]="data">
+          <list-item (click)="selectedItem = item" [icon]="'user'">{{ item.username }}</list-item>
+          <!-- <list-extendable #extendd>
+            <row>
+              <column [width]="50">username:</column>
+              <column [width]="50">
+                <input type="text" [(ngModel)]="item.username" />
+              </column>
+            </row>
+            <button class="btn" (click)="updateData(item)">UPDATE</button>
+          </list-extendable> -->
+        </ng-template>
+      </list>
+    </tab>
+
+    <tab [title]="'Games'" (onActivate)="getData('game')">
+      <list>
+        <ng-template ngFor let-item [ngForOf]="data">
+          <list-item (click)="selectedItem = item">{{ item._id }}</list-item>
+          <!-- <list-extendable #extendd>
+            <button class="btn" (click)="updateData(item)">UPDATE</button>
+          </list-extendable> -->
+        </ng-template>
+      </list>
+    </tab>
+
+    <tab [title]="'Tournaments'" (onActivate)="getData('tournament')">
+      <list>
+        <ng-template ngFor let-item [ngForOf]="data">
+          <list-item (click)="selectedItem = item">{{ item._id }}</list-item>
+          <!-- <list-extendable #extendd>
+            <row>
+              <column [width]="50">name:</column>
+              <column [width]="50">
+                <input type="text" [(ngModel)]="item.name" />
+              </column>
+            </row>
+            <row>
+              <column [width]="50">word:</column>
+              <column [width]="50">
+                <input type="text" [(ngModel)]="item.word" />
+              </column>
+            </row>
+            <button class="btn" (click)="updateData(item)">UPDATE</button>
+          </list-extendable> -->
+        </ng-template>
+      </list>
+    </tab>
+
+    <tab [title]="'Essentials'" (onActivate)="getData('essential')">
+      <list>
+        <ng-template ngFor let-item [ngForOf]="data">
+          <list-item (click)="selectedItem = item">{{ item.name }}</list-item>
+          <!-- <list-extendable #extendd>
+            <row>
+              <column [width]="50">name:</column>
+              <column [width]="50">
+                <input type="text" [(ngModel)]="item.name" />
+              </column>
+            </row>
+            <row>
+              <column [width]="50">difficulty:</column>
+              <column [width]="50">
+                <input type="text" [(ngModel)]="item.difficulty" />
+              </column>
+            </row>
+            <button class="btn" (click)="updateData(item)">UPDATE</button>
+          </list-extendable> -->
+        </ng-template>
+      </list>
+    </tab>
+
+    <tab [title]="'Tricks'" (onActivate)="getData('trick')">
+      <list>
+        <ng-template ngFor let-item [ngForOf]="data">
+          <list-item (click)="selectedItem = item">{{ item._id }}</list-item>
+          <!-- <list-extendable #extendd>
+            <row>
+              <column [width]="50">position:</column>
+              <column [width]="50">
+                <input type="text" [(ngModel)]="item.position" />
+              </column>
+            </row>
+            <row>
+              <column [width]="50">essential:</column>
+              <column [width]="50">
+                <input type="text" [(ngModel)]="item.essential" />
+              </column>
+            </row>
+            <row *ngIf="item.rotation">
+              <column [width]="50">rotation:</column>
+              <column [width]="50">
+                <input type="text" [(ngModel)]="item.rotation" />
+              </column>
+            </row>
+            <row *ngIf="item.direction">
+              <column [width]="50">direction:</column>
+              <column [width]="50">
+                <input type="text" [(ngModel)]="item.direction" />
+              </column>
+            </row>
+            <row>
+              <column [width]="50">difficulty:</column>
+              <column [width]="50">
+                <input type="text" [(ngModel)]="item.difficulty" />
+              </column>
+            </row>
+            <button class="btn" (click)="updateData(item)">UPDATE</button>
+          </list-extendable> -->
+        </ng-template>
+      </list>
+    </tab>
+
+    <tab [title]="'Tags'" (onActivate)="getData('tag')">
+      <list>
+        <ng-template ngFor let-item [ngForOf]="data">
+          <list-item (click)="selectedItem = item">{{ item.name }}</list-item>
+          <!-- <list-extendable #extendd>
+            <row>
+              <column [width]="50">name:</column>
+              <column [width]="50">
+                <input type="text" [(ngModel)]="item.name" />
+              </column>
+            </row>
+            <button class="btn" (click)="updateData(item)">UPDATE</button>
+          </list-extendable> -->
+        </ng-template>
+      </list>
+    </tab>
+
+  </tabs>
+
+</content>

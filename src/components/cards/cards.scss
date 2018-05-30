@@ -1,0 +1,13 @@
+.card {
+  padding: 20px 60px;
+  border: 1px solid $primary-border;
+  background-color: $primary-transparent;
+  margin: 0 auto;
+  display: inline-block;
+  border-radius: $radius;
+}
+
+.card--block {
+  display: block;
+  padding: 20px;
+}

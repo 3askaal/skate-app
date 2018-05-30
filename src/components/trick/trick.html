@@ -1,0 +1,8 @@
+<div class="trick" [class.trick--block]=full>
+  <span class="trick__aspect trick__aspect--position" *ngIf="trick.position">{{ trick.position }}</span>
+  <span class="trick__aspect trick__aspect--direction" *ngIf="trick.direction">{{ trick.direction }}</span>
+  <span class="trick__aspect trick__aspect--rotation" *ngIf="trick.rotation">{{ trick.rotation }}</span>
+  <span class="trick__aspect trick__aspect--essential" *ngIf="trick.essential.name">{{ trick.essential.name }}</span>
+  <span class="trick__aspect trick__aspect--tags" *ngIf="full && trick.tags.length">({{ trick.tags }})</span>
+  <!-- <span class="trick__aspect trick__aspect--difficulty" *ngIf="full && trick.classification">{{ trick.classification }}</span> -->
+</div>

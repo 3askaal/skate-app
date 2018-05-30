@@ -1,0 +1,32 @@
+@import '../../theme/all';
+
+trick {
+  display: inline-block;
+}
+
+.trick {
+  display: flex;
+  text-transform: uppercase;
+}
+
+.trick__aspect {
+  margin-right: 5px;
+}
+
+.trick__aspect--position {
+  color: $primary-darker;
+}
+
+.trick__aspect--direction {
+  color: $primary-dark;
+}
+
+.trick__aspect--tags {
+  color: $primary-darker;
+}
+
+.trick__aspect--difficulty {
+  flex-grow: 1;
+  align-self: flex-end;
+  text-align: right;
+}

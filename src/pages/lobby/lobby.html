@@ -1,0 +1,42 @@
+<header [title]="'Lobby'"></header>
+
+
+<content>
+
+  <div class="align-center space--xl">
+    <p class="space--s align-center">Change word</p>
+    <board [word]="LOBBY.data.word" [isStatic]=true [isInput]=true (boardInput)="LOBBY.updateSettings({ word: $event })"></board>
+  </div>
+
+  <list *ngIf="LOBBY.data.ref">
+    <list-item>
+      Can {{ LOBBY.data.ref.username }} be the referee?
+      <div class="buttons">
+        <a class='btn'>
+          <i-thumbs-up></i-thumbs-up>
+        </a>
+        <a class='btn'>
+          <i-thumbs-down></i-thumbs-down>
+        </a>
+      </div>
+    </list-item>
+  </list>
+
+  <h2 class="space--s">Awaiting players</h2>
+
+  <list>
+    <list-item *ngFor="let player of LOBBY.data.players | order:['active']" [class.disabled]="!player.active">
+      {{ player.username }}
+      <!-- <div class="lst__item__options" *ngIf="player.active">
+        <a class='btn' (click)="LOBBY.updateSettings({ ref: player })">
+          <i-clipboard></i-clipboard>
+        </a>
+      </div> -->
+    </list-item>
+  </list>
+
+  <div class="align-center">
+    <a class="btn" (click)="LOBBY.createGame()">Start game</a>
+  </div>
+
+</content>

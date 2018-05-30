@@ -1,0 +1,17 @@
+<div class="search">
+
+  <div class="search__icon">
+    <i-search></i-search>
+  </div>
+
+  <input class="search__input" type="text"
+    [(ngModel)]="searchValue"
+    (input)="onInput()"
+    (focus)="searchFocus.emit()"
+    (blur)="searchBlur.emit()">
+
+  <a *ngIf="filled" class="btn btn--clean search__clear" (click)="onClear()">
+    <i-x></i-x>
+  </a>
+
+</div>
