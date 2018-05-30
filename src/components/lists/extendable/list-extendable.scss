@@ -6,6 +6,7 @@
   overflow: hidden;
   visibility: hidden;
   font-size: $size-xs;
+  max-height: 0;
 
   &.extend {
     border: 1px solid $primary-border;
