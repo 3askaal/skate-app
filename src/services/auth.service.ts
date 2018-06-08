@@ -64,9 +64,9 @@ export class AuthService {
     this.setAuthenticatedUser();
     this.setHeaders();
 
-    if (ENV.production) {
-      this.storeDeviceToken();
-    }
+    // if (ENV.production) {
+    //   this.storeDeviceToken();
+    // }
   }
 
   public checkAuthentication() {

@@ -55,7 +55,7 @@ import * as SmoothscrollPolyfill from 'smoothscroll-polyfill';
 })
 export class App {
   @ViewChild('wrapper') public wrapper;
-  sidebarState: string = 'inactive';
+  sidebarState = 'inactive';
 
   constructor(
     public el: ElementRef,
@@ -63,9 +63,9 @@ export class App {
     private PUSH: PushService,
     private AUTH: AuthService,
   ) {
-    if (ENV.production) {
-      // this.PUSH.initialize();
-    }
+    // if (ENV.production) {
+    //   this.PUSH.initialize();
+    // }
 
     this.increasePerformance();
     this.AUTH.checkAuthentication();
