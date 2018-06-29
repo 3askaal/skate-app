@@ -1,5 +1,3 @@
-### About this project
-
 This is an unfinished project
 
 Why I decided to stop working on this project:
@@ -7,8 +5,8 @@ Why I decided to stop working on this project:
 - It has no business model
 - I was done learning new things in this project
 
-### Concept
 
+## Concept
 Games of skate are games skateboarders play at the skatepark.
 
 Rules:
