@@ -7,7 +7,10 @@ import { SharedService } from '../../../services/shared.service';
   templateUrl: './login.html',
 })
 export class LoginPage {
-  public credentials: any = {};
+  public credentials: any = {
+    username: 'demo',
+    password: 'demo'
+  };
 
   constructor(public AUTH: AuthService, public SHARED: SharedService) {}
 }
