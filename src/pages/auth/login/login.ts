@@ -8,7 +8,7 @@ import { SharedService } from '../../../services/shared.service';
 })
 export class LoginPage {
   public credentials: any = {
-    username: 'demo',
+    identifier: 'demo',
     password: 'demo'
   };
 

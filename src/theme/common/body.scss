@@ -1,3 +1,5 @@
+@import '../all.scss';
+
 * {
   box-sizing: border-box;
 }
@@ -9,9 +11,13 @@ body {
   color: $base-color !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 14px;
+  font-size: 12px;
   user-select: none;
   text-rendering: optimizeLegibility;
+
+  @include breakpoint($bp-m) {
+    font-size: 14px;
+  }
 }
 
 body {
